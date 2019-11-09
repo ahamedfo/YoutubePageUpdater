@@ -13,7 +13,7 @@ const channelForm = document.getElementById('channel-form');
 const channelInput = document.getElementById('channel-input');
 const videoContainer = document.getElementById('video-container');
 
-const defaultChannel = "techguyweb";
+const defaultChannel = "PSGofficiel";
 
 //Form submit to update the channel by taking in input value
 channelForm.addEventListener('submit', function(e) {
@@ -105,7 +105,7 @@ function getChannel(channel) {
           <li class="collection-item"> Views: ${numberWithCommas(channel.statistics.viewCount)} </li>
           <li class="collection-item"> Video Count: ${numberWithCommas(channel.statistics.videoCount)} </li>
         </ul>
-        <p> ${channel.snippet.description}</p>
+        <p style="color:white"> ${channel.snippet.description}</p>
         <hr>
         <a class="btn grey darken-2" target="_blank" href="https://youtube.com/${channel.snippet.customUrl}"> Visit Channel </a>
      `;
@@ -130,8 +130,9 @@ function requestVideoPlaylist(playlistId) {
   const requestOptions = {
     playlistId: playlistId,
     part: 'snippet',
-    maxResults: 10
+    maxResults: 6
   }
+
 
   const request = gapi.client.youtube.playlistItems.list(requestOptions);
 
@@ -139,15 +140,15 @@ function requestVideoPlaylist(playlistId) {
     console.log(response);
     const playListItems = response.result.items;
     if (playListItems) {
-      let output = '<br><h4 class="center-align"> Latest Videos </h4>';
+      let output = '<br><h4 class="center-align" style="color:white"> Latest Videos </h4>';
 
       //Looping through the Videos and appending output
       playListItems.forEach(item => {
         const videoId = item.snippet.resourceId.videoId;
 
         output += `
-          <div class="col s3">
-            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoId}" frameborder="0"
+          <div class="col s4" style="margin: 2% auto">
+            <iframe width="100%" height="225px" src="https://www.youtube.com/embed/${videoId}" frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         `
