@@ -13,8 +13,8 @@ This projects implements the YouTube OAUTH 2.O API Call to grab data and the lat
   - [x] Authorization
 - [x] Front End
   - [x] HTML/CSS
-  - [x] JAVSCRIPT
-  - [x] URL input section 
+  - [x] Javascript
+  - [x] Channel input section 
 - [x] User Login Authentication
   - [x] Google Login Verification enabled
 
